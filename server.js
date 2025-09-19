@@ -1,3 +1,5 @@
+const propertiesRoutes = require('./routes/properties');
+app.use('/api/properties', propertiesRoutes);
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
