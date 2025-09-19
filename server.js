@@ -1,5 +1,5 @@
 const propertiesRoutes = require('./routes/properties');
-app.use('/api/properties', propertiesRoutes);
+
 const express = require('express');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
@@ -21,9 +21,14 @@ app.use(cors({ origin: process.env.CLIENT_ORIGIN || '*' }));
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/properties', require('./routes/properties'));
+app.use('/api/properties', propertiesRoutes);
 
 app.get('/', (req, res) => res.send('Addis Property Rent API'));
 
 const PORT = process.env.PORT || 5000;
+// Comment out or remove this line:
+// connectDB();
+
+// Add this temporary storage:
+let properties = [];
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

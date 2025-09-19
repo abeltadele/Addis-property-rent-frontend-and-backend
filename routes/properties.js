@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+console.log(require('fs').readFileSync('server.js', 'utf8'));
 
 // GET all properties
 router.get('/', async (req, res) => {
